@@ -1,3 +1,7 @@
+<?php
+include "koneksi.php"; 
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -113,7 +117,7 @@
     </nav>
     <!-- nav end -->
     <!-- hero begin -->
-    <section id="hero" class="text-center p-5 hero-light text-sm-start">
+    <section id="project" class="text-center p-5 hero-light text-sm-start">
       <div class="container">
         <div class="d-sm-flex flex-sm-row-reverse align-item-center">
           <img src="foto/banner.png" class="img-fluid" width="300" alt="png promgramming language">
@@ -133,84 +137,40 @@
     </section>
     <!-- hero end -->
     <!-- project begin -->
-    <section id="project" class="text-center p-5">
-      <div class="container">
-          <h1 class="fw-bold display-4 pb-3">PROJECT</h1>
-          <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-            <div class="col">
-              <div class="card h-100">
-                <img src="foto/LA.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Blog Website</h5>
-                  <p class="card-text">Blog website yang menjelajahi keindahan dan keajaiban hutan! 
-                    Di sini, kami menjelajahi beragam aspek hutan, mulai dari keanekaragaman hayati 
-                    yang menakjubkan, manfaat ekologis, hingga petualangan luar ruang yang seru. 
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-body-secondary">Created by: Ela</small>
-                </div>
-              </div>
+    <!-- article begin -->
+<section id="article" class="text-center p-5">
+  <div class="container">
+    <h1 class="fw-bold display-4 pb-3">PROJECT</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+      <?php
+      $sql = "SELECT * FROM article ORDER BY tanggal DESC";
+      $hasil = $conn->query($sql); 
+
+      while($row = $hasil->fetch_assoc()){
+      ?>
+        <div class="col">
+          <div class="card h-100">
+            <img src="foto/<?= $row["gambar"]?>" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title"><?= $row["judul"]?></h5>
+              <p class="card-text">
+                <?= $row["isi"]?>
+              </p>
             </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="foto/KEYBOARD.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Poster Promosi Jualan</h5>
-                  <p class="card-text">keyboard ini menawarkan pengalaman produktivitas dan hiburan yang tak 
-                    tertandingi. Nikmati keunggulan fitur-fitur terkini ini dan tingkatkan performa Anda di 
-                    segala aktivitas, dari pekerjaan hingga game, dengan keyboard canggih terbaru ini.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-body-secondary">Created by: Ela</small>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="foto/SERENA.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Website Entertaintment</h5>
-                  <p class="card-text">Serena, sosok wanita dengan pesona visual yang luar biasa, 
-                    menjadi salah satu karakter utama yang menarik perhatian dalam dunia webtoon. 
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-body-secondary">Created by: Ela</small>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="foto/gyj.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Poster Film</h5>
-                  <p class="card-text">
-                    Poster film "Go Yoonjung" ini dengan cerdas memadukan estetika visual yang memukau dan pesan inspiratif untuk mengajak penonton bergabung dalam petualangan seorang wanita muda yang penuh karakter.
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-body-secondary">Created by: Ela</small>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="foto/Semarang.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Blog Website</h5>
-                  <p class="card-text">
-                    Blog Semarng menyajikan perjalanan visual melalui ulasan tour bersejarah dan galeri seni. Pembaca dapat menjelajahi sudut tersembunyi kota, mengungkap kisah monumen dan karya kreatif.
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-body-secondary">Created by: Ela</small>
-                </div>
-              </div>
+            <div class="card-footer">
+              <small class="text-body-secondary">
+                <?= $row["tanggal"]?>
+              </small>
             </div>
           </div>
-      </div>
-    </section>
+        </div>
+        <?php
+      }
+      ?> 
+    </div>
+  </div>
+</section>
+<!-- article end -->
     <!-- project end -->
     <!-- gallery begin -->
     <section id="gallery" class="text-center p-5 gallery-light">
