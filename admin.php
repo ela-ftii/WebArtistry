@@ -14,6 +14,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="foto/logo.png">
     <title>Web Developer | Admin</title>
     <link rel="icon" href="img/logo.png" />
     <link
