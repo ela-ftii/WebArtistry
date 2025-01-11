@@ -1,12 +1,12 @@
-# WebArtistry 🎨
+# WebArtistry
 
 Hey there! Welcome to **WebArtistry**! This is a cool website I built using **Bootstrap** to make it look sleek and responsive. If you’re interested, I’d love to share the code with you!
 
-## 🌐 Demo
+## Demo
 
 Check out the live site here: [WebArtistry Demo](http://eladev.free.nf)
 
-## 🚀 Features
+## Features
 
 - **Responsive Design**: Built with Bootstrap, so it looks great on any device—desktop or mobile!
 - **Image Gallery**: Showcasing awesome images with a stylish layout for a smooth visual experience.
@@ -14,7 +14,7 @@ Check out the live site here: [WebArtistry Demo](http://eladev.free.nf)
 - **Article Management**: Admins can easily add, edit, or delete articles to keep the content fresh.
 - **Admin Dashboard**: A dedicated page for managing all the content and users. You’ve got full control!
 
-## 🛠️ Installation
+##  Installation
 
 Wanna run this project locally? Just follow these simple steps:
 
