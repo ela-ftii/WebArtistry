@@ -17,8 +17,8 @@ function upload_foto($File){
 	$Allowed = array('jpg', 'png', 'gif', 'jpeg');  
 
 	// Check file size
-	if ($FileSize > 1000000) {
-		$message .= "Sorry, your file is too large, max 500KB. ";
+	if ($FileSize > 10000000) {
+		$message .= "Sorry, your file is too large, max 10MB. ";
 		$uploadOk = 0;
 	}
 
@@ -36,7 +36,7 @@ function upload_foto($File){
 	}else{
 		//Create new filename:
         $NewName = date("YmdHis"). '.' . $FileExt;
-        $UploadDestination = "foto/". $NewName; 
+        $UploadDestination = "img/". $NewName; 
 
 		if (move_uploaded_file($TmpLocation, $UploadDestination)) {
 			//echo "The file has been uploaded.";

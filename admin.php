@@ -14,9 +14,8 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="foto/logo.png">
+    <link rel="icon" href="img/logo.png">
     <title>Web Developer | Admin</title>
-    <link rel="icon" href="img/logo.png" />
     <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
@@ -35,13 +34,18 @@ if (!isset($_SESSION['username'])) {
         .hero-light {
             background-color: #d1e7dd; 
         }
+        .dropdown-menu {
+            display: block;
+            position: absolute; 
+            z-index: 1000; 
+        }
     </style>
 </head>
 <body class="hero-light">
     <!-- nav begin -->
     <nav class="navbar navbar-expand-sm bg-body-tertiary sticky-top bg-secondary">
     <div class="container">
-        <a class="navbar-brand" href="">Ela<strong>Dev</strong></a>
+        <a class="navbar-brand" href="index.html">Ela<strong>Dev</strong></a>
         <button
         class="navbar-toggler"
         type="button"
@@ -61,12 +65,19 @@ if (!isset($_SESSION['username'])) {
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?page=article">Article</a>
             </li> 
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php?page=gallery">Gallery</a>
+            </li> 
+            <li class="nav-item fw-bold">
+                <a class="nav-link" href="index.php#gallery">Homepage</a>
+            </li> 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-danger fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <?= $_SESSION['username']?>
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-sm" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="logout.php">Logout</a></li> 
+                    <li><a class="dropdown-item" href="admin.php?page=user">Profile User</a></li> 
                 </ul>
             </li> 
         </ul>
@@ -77,31 +88,43 @@ if (!isset($_SESSION['username'])) {
     <!-- content begin -->
     <section id="content" class="p-5">
         <div class="container"> 
+        <?php
+        if (isset($_GET['page'])) {
+        ?>
+            <h4 class="lead display-6 pb-2 border-bottom border-danger-subtle">
+                <?php
+                if ($_GET['page'] == 'user') {
+                    echo 'Profile';
+                }else {
+                    echo ucfirst($_GET['page']);
+                }
+                ?>
+            </h4>
             <?php
-            if(isset($_GET['page'])){
-            ?>
-                <h4 class="lead display-6 pb-2 border-bottom border-danger-subtle"><?= ucfirst($_GET['page'])?></h4>
-                <?php
-                include($_GET['page'].".php");
-            }else{
-            ?>
-                <h4 class="lead display-6 pb-2 border-bottom border-danger-subtle">Dashboard</h4>
-                <?php
-                include("dashboard.php");
+            if ($_GET['page'] == 'gallery') {
+                include('gallery.php');
+            }else {
+                include($_GET['page'] . ".php");
             }
-            ?>
+        } else {
+        ?>
+            <h4 class="lead display-6 pb-2 border-bottom border-danger-subtle">Dashboard</h4>
+            <?php
+            include("dashboard.php");
+        }
+        ?>
         </div> 
     </section>
     <!-- content end -->
     <!-- footer begin -->
-    <footer class="text-center p-4 bg-white">
+    <footer class="text-center p-4 bg-white" >
     <div class="d-flex justify-content-between align-items-center ">
           <div>
-              <a href="https://github.com/ela-ftii"><i class="bi bi-github h2 p-2 text-secondary" title="Ela github"></i></a>
-              <a href="https://www.instagram.com/ela_ftii/"><i class="bi bi-instagram h2 p-2 text-secondary" title="Ela instagram"></i></a>
-              <a href=""><i class="bi bi-discord h2 p-2 text-secondary" title="Ela discord"></i></a>
+              <a href="https://github.com/ela-ftii"><i class="bi bi-github h2 p-2 text-dark" title="Ela github"></i></a>
+              <a href="https://www.instagram.com/ela_ftii/"><i class="bi bi-instagram h2 p-2 text-dark" title="Ela instagram"></i></a>
+              <a href=""><i class="bi bi-discord h2 p-2 text-dark" title="Ela discord"></i></a>
           </div>
-          <div class="text-end p-4">
+          <div class="text-end p-4 text-dark">
               Copyright &copy; 2024 Amelia Fitri Sibarani. All Rights Reserved
           </div>
     </footer>

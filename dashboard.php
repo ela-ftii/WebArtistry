@@ -7,22 +7,24 @@ $hasil1 = $conn->query($sql1);
 $jumlah_article = $hasil1->num_rows;
 
 //query untuk mengambil data gallery
-//$sql2 = "SELECT * FROM gallery ORDER BY tanggal DESC";
-//$hasil2 = $conn->query($sql2);
+$sql2 = "SELECT * FROM gallery ORDER BY tanggal DESC";
+$hasil2 = $conn->query($sql2);
 
 //menghitung jumlah baris data gallery
-//$jumlah_gallery = $hasil2->num_rows;
+$jumlah_gallery = $hasil2->num_rows;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="foto/logo.png">
+    <link rel="icon" href="img/logo.png">
     <title>Dashboard</title>
     <!-- Jika menggunakan Bootstrap -->
     <!-- <link rel="stylesheet" href="path/to/bootstrap.css">  -->
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
@@ -41,6 +43,9 @@ $jumlah_article = $hasil1->num_rows;
         }
         .hero-light {
         background-color: #d1e7dd; 
+        }
+        body {
+            font-family: slabo;
         }
     </style>
 </head>
@@ -68,7 +73,7 @@ $jumlah_article = $hasil1->num_rows;
                             <h5 class="card-title"><i class="bi bi-camera"></i> Gallery</h5> 
                         </div>
                         <div class="p-3">
-                            <span class="badge rounded-pill text-bg-danger fs-2"><?php //echo $jumlah_gallery; ?></span>
+                            <span class="badge rounded-pill text-bg-danger fs-2"><?php echo $jumlah_gallery; ?></span>
                         </div> 
                     </div>
                 </div>

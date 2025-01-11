@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+
+<?php
 include "koneksi.php"; 
 ?>
 
@@ -8,7 +12,7 @@ include "koneksi.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Web Developer</title>
-    <link rel="icon" href="foto/logo.png">
+    <link rel="icon" href="img/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,10 +121,10 @@ include "koneksi.php";
     </nav>
     <!-- nav end -->
     <!-- hero begin -->
-    <section id="project" class="text-center p-5 hero-light text-sm-start">
+    <section id="hero" class="text-center p-5 hero-light text-sm-start">
       <div class="container">
         <div class="d-sm-flex flex-sm-row-reverse align-item-center">
-          <img src="foto/banner.png" class="img-fluid" width="300" alt="png promgramming language">
+          <img src="img/banner.png" class="img-fluid" width="300" alt="png promgramming language">
           <div>
             <h1 class="fw-bold display-4">Take the Leap, Shape Your Future!</h1>
             <h4 class="lead display-6">Seize the opportunity to shape your future from a young age. It's important to determine your path now, as finding a job in today's world can be quite challenging.</h4>
@@ -137,72 +141,120 @@ include "koneksi.php";
     </section>
     <!-- hero end -->
     <!-- project begin -->
-    <!-- article begin -->
-<section id="article" class="text-center p-5">
-  <div class="container">
-    <h1 class="fw-bold display-4 pb-3">PROJECT</h1>
-    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-      <?php
-      $sql = "SELECT * FROM article ORDER BY tanggal DESC";
-      $hasil = $conn->query($sql); 
-
-      while($row = $hasil->fetch_assoc()){
-      ?>
-        <div class="col">
-          <div class="card h-100">
-            <img src="foto/<?= $row["gambar"]?>" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title"><?= $row["judul"]?></h5>
-              <p class="card-text">
-                <?= $row["isi"]?>
-              </p>
+    <section id="project" class="text-center p-5">
+      <div class="container">
+          <h1 class="fw-bold display-4 pb-3">PROJECT</h1>
+          <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+            <div class="col">
+              <div class="card h-100">
+                <img src="img/LA.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Blog Website</h5>
+                  <p class="card-text">Blog website yang menjelajahi keindahan dan keajaiban hutan! 
+                    Di sini, kami menjelajahi beragam aspek hutan, mulai dari keanekaragaman hayati 
+                    yang menakjubkan, manfaat ekologis, hingga petualangan luar ruang yang seru. 
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Created by: Ela</small>
+                </div>
+              </div>
             </div>
-            <div class="card-footer">
-              <small class="text-body-secondary">
-                <?= $row["tanggal"]?>
-              </small>
+            <div class="col">
+              <div class="card h-100">
+                <img src="img/KEYBOARD.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Poster Promosi Jualan</h5>
+                  <p class="card-text">keyboard ini menawarkan pengalaman produktivitas dan hiburan yang tak 
+                    tertandingi. Nikmati keunggulan fitur-fitur terkini ini dan tingkatkan performa Anda di 
+                    segala aktivitas, dari pekerjaan hingga game, dengan keyboard canggih terbaru ini.</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Created by: Ela</small>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="img/SERENA.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Website Entertaintment</h5>
+                  <p class="card-text">Serena, sosok wanita dengan pesona visual yang luar biasa, 
+                    menjadi salah satu karakter utama yang menarik perhatian dalam dunia webtoon. 
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Created by: Ela</small>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="img/gyj.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Poster Film</h5>
+                  <p class="card-text">
+                    Poster film "Go Yoonjung" ini dengan cerdas memadukan estetika visual yang memukau dan pesan inspiratif untuk mengajak penonton bergabung dalam petualangan seorang wanita muda yang penuh karakter.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Created by: Ela</small>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="img/Semarang.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Blog Website</h5>
+                  <p class="card-text">
+                    Blog Semarng menyajikan perjalanan visual melalui ulasan tour bersejarah dan galeri seni. Pembaca dapat menjelajahi sudut tersembunyi kota, mengungkap kisah monumen dan karya kreatif.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-body-secondary">Created by: Ela</small>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <?php
-      }
-      ?> 
-    </div>
-  </div>
-</section>
-<!-- article end -->
+      </div>
+    </section>
     <!-- project end -->
     <!-- gallery begin -->
+    <!-- Bagian gallery -->
     <section id="gallery" class="text-center p-5 gallery-light">
       <div class="container">
         <h1 class="">GALLERY</h1>
         <div id="carouselExample" class="carousel slide">
-          <!-- kumpulan isi -->
+          <!-- Kumpulan isi -->
           <div class="carousel-inner">
-            <div class="carousel-item active"> <!--active ini biar bisa munculin gambar pada gallery-->
-              <a href="https://www.figma.com/design/UWkxNfKvaGB8J43ml0zgRo/BORAX?node-id=0-1&t=XBTSvSJhRjAoRfsf-1">
-                <img src="foto/Semarang.png" class="d-block w-100" title="Blog Website Semarang">
-              </a>
-            </div>
-            <div class="carousel-item">
-              <a href="https://www.figma.com/design/UWkxNfKvaGB8J43ml0zgRo/BORAX?node-id=0-1&t=XBTSvSJhRjAoRfsf-1">
-                <img src="foto/LA.png" class="d-block w-100" title="Blog Website Forest">
-              </a>
-            </div>
-            <div class="carousel-item">
-              <a href="https://www.figma.com/design/UWkxNfKvaGB8J43ml0zgRo/BORAX?node-id=0-1&t=XBTSvSJhRjAoRfsf-1">
-                <img src="foto/gyj.png" class="d-block w-100" title="poster Film">
-              </a>
-            </div>
-            <!-- end -->
+            <?php
+            // Koneksi ke database
+            include "koneksi.php";
+
+            // Query untuk mengambil data gambar
+            $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+            $hasil = $conn->query($sql);
+
+            // Tampilkan data gambar
+            $i = 0;
+            while ($row = $hasil->fetch_assoc()) {
+              ?>
+              <div class="carousel-item <?php if ($i == 0) { echo 'active'; } ?>">
+                <div class="w-100 h-200" style="overflow: hidden;">
+                  <img src="img/<?php echo $row['gambar']; ?>" style="width: 100%; height: 100%; object-fit: contain;" alt="Gambar">
+                </div>
+              </div>
+              <?php
+              $i++;
+            }
+            ?>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
           </button>
         </div>
       </div>
@@ -312,7 +364,7 @@ include "koneksi.php";
     </section>
     <!-- about end -->
     <!-- footer begin -->
-    <footer class="text-left p-5">
+    <footer class="text-left p-4">
       <div class="d-flex justify-content-between align-items-center">
           <div>
               <a href="https://github.com/ela-ftii"><i class="bi bi-github h2 p-2 icon-light" title="Ela github"></i></a>
